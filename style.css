@@ -166,6 +166,7 @@ img{ max-width: 100%; display:block; }
   gap: 10px;
   background: var(--eggshell);
   transition: background .15s ease;
+  color: inherit;
 }
 .recipe-card:hover{ background: #F3ECDD; }
 .recipe-card.featured{
