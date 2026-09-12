@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact — QuickBites</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap">
+    <a href="index.html" class="logo">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2v6a3 3 0 0 0 3 3v11M6 2v6M9 2v6M6 8h3M18 2c-2 3-2 8 0 11v9"/></svg>
+      QuickBites
+    </a>
+    <nav class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="recipes.html">Recipes</a>
+      <a href="about.html">About</a>
+      <a href="contact.html" class="active">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<section class="simple-page">
+  <h1>Get in touch</h1>
+  <p>Questions, recipe requests, or something that didn't turn out right? Send a message below.</p>
+  <p style="font-size:0.85rem; color:rgba(43,36,32,0.6);">Note: this form doesn't send anywhere yet — it's a static template. Connect it to a form service (like Formspree or Google Forms) once your site is live, so messages actually reach you.</p>
+  <form>
+    <div>
+      <label for="name">Name</label>
+      <input type="text" id="name" name="name" placeholder="Your name">
+    </div>
+    <div>
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email" placeholder="you@example.com">
+    </div>
+    <div>
+      <label for="message">Message</label>
+      <textarea id="message" name="message" placeholder="What's on your mind?"></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary" style="align-self:flex-start;">Send message</button>
+  </form>
+</section>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div>© 2026 QuickBites. All recipes tested in a real, small kitchen.</div>
+    <div class="foot-links">
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+      <a href="recipes.html">Recipes</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

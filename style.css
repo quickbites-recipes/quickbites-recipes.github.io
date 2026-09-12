@@ -1,0 +1,302 @@
+/* ===========================================
+   QuickBites — Design Tokens
+   Palette: avocado green, mustard, eggshell, brick red, charcoal
+   Type: Fraunces (headline serif) + Karla (body sans)
+=========================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,500&family=Karla:wght@400;500;700&display=swap');
+
+:root{
+  --avocado: #3D5A40;
+  --avocado-dark: #2A3F2C;
+  --mustard: #E8A33D;
+  --eggshell: #FBF7F0;
+  --brick: #C0392B;
+  --charcoal: #2B2420;
+  --line: rgba(43,36,32,0.14);
+  --max-w: 1080px;
+}
+
+*{ box-sizing: border-box; }
+
+html{ scroll-behavior: smooth; }
+
+body{
+  margin:0;
+  background: var(--eggshell);
+  color: var(--charcoal);
+  font-family: 'Karla', sans-serif;
+  font-size: 17px;
+  line-height: 1.6;
+}
+
+h1,h2,h3,h4{
+  font-family: 'Fraunces', serif;
+  font-weight: 600;
+  line-height: 1.15;
+  margin: 0 0 0.4em 0;
+  color: var(--charcoal);
+}
+
+a{ color: inherit; text-decoration: none; }
+
+img{ max-width: 100%; display:block; }
+
+.wrap{
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* ---------- Header ---------- */
+.site-header{
+  border-bottom: 2px solid var(--charcoal);
+  background: var(--eggshell);
+  position: sticky; top:0; z-index: 50;
+}
+.site-header .wrap{
+  display:flex;
+  align-items:center;
+  justify-content: space-between;
+  padding-top: 18px;
+  padding-bottom: 18px;
+}
+.logo{
+  font-family:'Fraunces', serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  display:flex;
+  align-items:center;
+  gap:8px;
+}
+.logo svg{ width:28px; height:28px; }
+.nav-links{
+  display:flex;
+  gap: 28px;
+  font-weight: 500;
+}
+.nav-links a{
+  padding-bottom: 3px;
+  border-bottom: 2px solid transparent;
+  transition: border-color .15s ease;
+}
+.nav-links a:hover, .nav-links a.active{
+  border-color: var(--brick);
+}
+.nav-toggle{ display:none; }
+
+/* ---------- Hero ---------- */
+.hero{
+  border-bottom: 2px solid var(--charcoal);
+  background:
+    radial-gradient(circle at 85% 20%, rgba(232,163,61,0.35), transparent 45%),
+    var(--eggshell);
+}
+.hero .wrap{
+  display:grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 40px;
+  align-items:center;
+  padding-top: 64px;
+  padding-bottom: 64px;
+}
+.hero h1{
+  font-size: clamp(2.4rem, 5vw, 3.6rem);
+  letter-spacing: -0.01em;
+}
+.hero p.lede{
+  font-size: 1.15rem;
+  max-width: 46ch;
+  margin-top: 14px;
+  color: rgba(43,36,32,0.85);
+}
+.hero-actions{ margin-top: 28px; display:flex; gap:14px; }
+
+.btn{
+  display:inline-block;
+  padding: 13px 26px;
+  font-weight: 700;
+  font-family:'Karla',sans-serif;
+  border: 2px solid var(--charcoal);
+  border-radius: 3px;
+  transition: transform .12s ease, background .12s ease, color .12s ease;
+}
+.btn-primary{ background: var(--brick); color: var(--eggshell); border-color: var(--brick); }
+.btn-primary:hover{ background: var(--charcoal); border-color: var(--charcoal); }
+.btn-ghost{ background: transparent; color: var(--charcoal); }
+.btn-ghost:hover{ background: var(--charcoal); color: var(--eggshell); }
+
+.hero-mark{
+  aspect-ratio: 1/1;
+  border: 2px solid var(--charcoal);
+  border-radius: 50%;
+  display:flex; align-items:center; justify-content:center;
+  background: var(--mustard);
+  position:relative;
+}
+.hero-mark svg{ width: 62%; height: 62%; }
+
+/* ---------- Section headings ---------- */
+.section{ padding: 56px 0; }
+.section-head{
+  display:flex;
+  align-items:baseline;
+  justify-content:space-between;
+  border-bottom: 2px solid var(--charcoal);
+  padding-bottom: 14px;
+  margin-bottom: 36px;
+}
+.section-head h2{ font-size: 1.9rem; }
+.section-head a{ font-weight:700; border-bottom: 2px solid var(--brick); padding-bottom:2px; }
+
+/* ---------- Recipe cards (asymmetric grid) ---------- */
+.recipe-grid{
+  display:grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0;
+  border-top: 2px solid var(--charcoal);
+  border-left: 2px solid var(--charcoal);
+}
+.recipe-card{
+  border-right: 2px solid var(--charcoal);
+  border-bottom: 2px solid var(--charcoal);
+  padding: 26px;
+  display:flex;
+  flex-direction: column;
+  gap: 10px;
+  background: var(--eggshell);
+  transition: background .15s ease;
+}
+.recipe-card:hover{ background: #F3ECDD; }
+.recipe-card.featured{
+  grid-column: span 2;
+  grid-row: span 2;
+  background: var(--avocado);
+  color: var(--eggshell);
+  justify-content: flex-end;
+}
+.recipe-card.featured h3{ color: var(--eggshell); font-size: 1.8rem; }
+.recipe-card .meta{
+  font-size: 0.85rem;
+  color: var(--brick);
+  font-weight: 700;
+}
+.recipe-card.featured .meta{ color: var(--mustard); }
+.recipe-card h3{ font-size: 1.25rem; }
+.recipe-card p{ margin:0; color: rgba(43,36,32,0.8); font-size: 0.95rem; }
+.recipe-card.featured p{ color: rgba(251,247,240,0.85); }
+.food-icon{ width: 38px; height: 38px; }
+
+/* ---------- Post page ---------- */
+.post-hero{
+  border-bottom: 2px solid var(--charcoal);
+  background: var(--mustard);
+  padding: 48px 0;
+}
+.post-hero .tag{ font-weight:700; color: var(--brick); }
+.post-hero h1{ font-size: clamp(2rem, 4vw, 2.8rem); margin-top: 10px; }
+.post-body{
+  max-width: 68ch;
+  margin: 0 auto;
+  padding: 48px 24px;
+}
+.post-body h2{ margin-top: 1.6em; font-size: 1.5rem; }
+.post-body p{ margin: 0 0 1.1em 0; }
+.ingredient-list{
+  list-style: none;
+  padding:0;
+  margin: 0 0 1.5em 0;
+  border-top: 1px solid var(--line);
+}
+.ingredient-list li{
+  padding: 10px 0;
+  border-bottom: 1px solid var(--line);
+  display:flex;
+  justify-content: space-between;
+}
+.steps{ counter-reset: step; list-style:none; padding:0; }
+.steps li{
+  counter-increment: step;
+  position: relative;
+  padding: 0 0 22px 46px;
+  margin-bottom: 4px;
+}
+.steps li::before{
+  content: counter(step);
+  position:absolute; left:0; top:0;
+  width: 32px; height:32px;
+  border: 2px solid var(--charcoal);
+  border-radius: 50%;
+  display:flex; align-items:center; justify-content:center;
+  font-family:'Fraunces',serif; font-weight:700;
+  background: var(--eggshell);
+}
+.callout{
+  background: var(--avocado);
+  color: var(--eggshell);
+  padding: 20px 24px;
+  border-radius: 3px;
+  margin: 2em 0;
+}
+.callout p{ margin:0; color: var(--eggshell); }
+
+/* Ad slot placeholders — replace with real AdSense <ins> units once approved */
+.ad-slot{
+  border: 1px dashed rgba(43,36,32,0.4);
+  color: rgba(43,36,32,0.55);
+  font-size: 0.8rem;
+  text-align:center;
+  padding: 18px;
+  margin: 2em 0;
+  font-family:'Karla',sans-serif;
+}
+
+/* ---------- About / Contact ---------- */
+.simple-page{ max-width: 68ch; margin:0 auto; padding: 56px 24px; }
+.simple-page h1{ font-size: 2.2rem; }
+form{ display:flex; flex-direction:column; gap: 16px; margin-top: 24px; }
+label{ font-weight:700; font-size: 0.9rem; }
+input, textarea{
+  font-family:'Karla',sans-serif;
+  font-size: 1rem;
+  padding: 12px 14px;
+  border: 2px solid var(--charcoal);
+  border-radius: 3px;
+  background: var(--eggshell);
+}
+textarea{ resize: vertical; min-height: 120px; }
+
+/* ---------- Footer ---------- */
+.site-footer{
+  border-top: 2px solid var(--charcoal);
+  background: var(--charcoal);
+  color: var(--eggshell);
+  margin-top: 40px;
+}
+.site-footer .wrap{
+  padding: 40px 24px;
+  display:flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+.site-footer a{ opacity: 0.85; }
+.site-footer a:hover{ opacity: 1; text-decoration: underline; }
+.foot-links{ display:flex; gap: 22px; }
+
+/* ---------- Responsive ---------- */
+@media (max-width: 780px){
+  .hero .wrap{ grid-template-columns: 1fr; }
+  .hero-mark{ max-width: 220px; margin: 0 auto; }
+  .recipe-grid{ grid-template-columns: 1fr 1fr; }
+  .recipe-card.featured{ grid-column: span 2; grid-row: span 1; }
+  .nav-links{ display:none; }
+}
+@media (max-width: 480px){
+  .recipe-grid{ grid-template-columns: 1fr; }
+  .recipe-card.featured{ grid-column: span 1; }
+}
+
+@media (prefers-reduced-motion: reduce){
+  *{ scroll-behavior:auto !important; transition:none !important; }
+}
